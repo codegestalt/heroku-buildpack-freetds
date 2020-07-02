@@ -5,9 +5,9 @@
 # sync output
 $stdout.sync = true
 
-puts "Installing freetds version 0.62.4 into #{ARGV[0]}/vendor/freetds"
+puts "Installing freetds version 0.91.112 into #{ARGV[0]}/vendor/freetds"
 puts `mkdir -p #{ARGV[0]}/vendor/freetds`
-puts `curl http://www.freetds.org/files/old/0.62/freetds-0.62.4.tar.gz -o - | tar -xz -C #{ARGV[0]}/vendor/freetds -f -`
+puts `curl http://www.freetds.org/files/stable/freetds-0.91.112.tar.gz -o - | tar -xz -C #{ARGV[0]}/vendor/freetds -f -`
 
 puts "-----> Writing FreeTDS configuration for subsequent buildpack"
 File.open("export", "w") do |file|
