@@ -4,10 +4,11 @@
 
 # sync output
 $stdout.sync = true
+FREETDS_VERSION = ENV.fetch("FREETDS_VERSION") || '1.1.42'
 
 puts "Installing freetds into #{ARGV[0]}/vendor/freetds"
 puts `mkdir -p #{ARGV[0]}/vendor/freetds`
-puts `curl http://www.freetds.org/files/stable/freetds-0_91.46.tar.gz -o - | tar -xz -C #{ARGV[0]}/vendor/freetds -f -`
+puts `curl http://www.freetds.org/files/stable/freetds-#{FREETDS_VERSION}.tar.gz -o - | tar -xz -C #{ARGV[0]}/vendor/freetds -f -`
 
 puts "-----> Writing FreeTDS configuration for subsequent buildpack"
 File.open("export", "w") do |file|
